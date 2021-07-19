@@ -29,6 +29,7 @@ This piece may move as many points as it wishes, in a straight line, along the l
 
 ### Soldier (Pawn)
 This piece may more one point either forward or sideways as seen below.![soldier movement](https://ancientchess.com/graphics-rules/janggi_korean_chess_pawn-move.jpg)
+
 However, within the fortress, the pawn may also move forward along the printed diagonal lines. The image shows the green pawn, with its increased power of move, approaching the enemy general.
 ![soldier movement](https://ancientchess.com/graphics-rules/janggi_korean_chess_pawn2-move.jpg)
 
