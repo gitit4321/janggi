@@ -10,10 +10,10 @@ The two sides (Red and Blue) alternate, moving one piece in each turn, in an att
 All pieces capture by landing on a point occupied by an enemy piece, using their normal movement (discussed below) to arrive at that location. The enemy piece is removed from play for the rest of the game.
 
 ## Piece Movement
-A breif description of each pieces movement can be found below.
+A brief description of each pieces movement can be found below.
 
 ### General (King)
-The general miust stay within the nine-point fortess. It moves one point along any printed line in the fortress. Note that it moves diagonally only along the printed lines.
+The general must stay within the nine-point fortess. It moves one point along any printed line in the fortress. Note that it moves diagonally only along the printed lines.
 
 ### Counselor (Queen)
 Moves exactly the same as the General, and is also confined to the fortress.
@@ -29,5 +29,7 @@ This piece may move as many points as it wishes, in a straight line, along the l
 
 ### Soldier (Pawn)
 This piece may more one point either forward or sideways. Howeverm within the fortress, the pawn may also move forward along the printed diagonal lines. The image shows the green pawn, with its increased power of move, approaching the enemy general.
+![soldier movement](https://ancientchess.com/graphics-rules/janggi_korean_chess_pawn2-move.jpg)
 
-
+### A general note about piece movement:
+While playing the game, upon clicking a game piece you will see what moves are available to you, represented by small green circles. This is an aid to assist with piece movement. 
