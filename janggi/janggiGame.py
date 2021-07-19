@@ -1,7 +1,7 @@
 import pygame
 
 from .board import Board
-from .constants import GREEN, SQUARE_SIZE
+from .constants import GREEN, BLACK, WOOD, WIDTH, HEIGHT, SQUARE_SIZE
 from .game_pieces import *
 from .piece import GamePiece
 
@@ -23,6 +23,7 @@ class JanggiGame:
     def update(self):
         self._board.draw(self._win)
         self.draw_valid_moves(self._valid_moves)
+        self.draw_game_state(self._win)
         pygame.display.update()
 
     def _init(self):
@@ -73,6 +74,27 @@ class JanggiGame:
             col, row = move
             pygame.draw.circle(self._win, GREEN, ((col * SQUARE_SIZE + SQUARE_SIZE // 2), (row * SQUARE_SIZE + SQUARE_SIZE // 2)), 10)
 
+    def draw_game_state(self, win):
+        state = self.get_game_state()
+        output = ''
+        if state == 'UNFINISHED':
+            turn = self.get_turn()
+            if turn == 'b':
+                player = 'Blue'
+            else:
+                player = 'Red'
+            output = f"{player}'s Turn"
+        elif state == 'RED_WON':
+            output = 'Red Wins!'
+        else:
+            output = 'Blue Wins!'
+
+        font = pygame.font.Font('freesansbold.ttf', 32)
+        text = font.render(output, True, BLACK, WOOD)
+        textRect = text.get_rect()
+        textRect.center = (WIDTH//2, HEIGHT+45)
+        win.blit(text, textRect)
+    
     def get_board(self):
         """
         Return raw board representation. (For use by program).
@@ -109,34 +131,3 @@ class JanggiGame:
             self._game_state = "RED_WON"
         else:
             self._game_state = "BLUE_WON"
-
-
-
-
-
-
-# remove??
-    # def get_moves_dict(self):
-    #     """
-    #     Creates and returns a dictionary composed of two nested dicitonaries containing all poissble moved for both teams. 
-    #     Dictionary keys are board spaces (Ex: (3, 5)) and values are a list of all objects that can reach that space with a 
-    #     valid move (Ex: [bEl, bSo, bCa]).
-    #     """
-    #     moves_dict = {}
-    #     moves_dict['red'] = {}
-    #     moves_dict['blue'] = {}
-    #     board = self.get_board()
-        
-    #     for i in range(2):
-    #         if i == 0:
-    #             team = 'red'
-    #         else:
-    #             team = 'blue'
-    #         for piece in board.get_pieces_on_board()[i]:
-    #             for space in piece.get_valid_moves(self):
-    #                 if space not in moves_dict[team]:
-    #                     moves_dict[team][space] = [piece]
-    #                 else:
-    #                     moves_dict[team][space].extend([piece])
-        
-    #     return moves_dict

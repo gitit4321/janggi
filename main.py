@@ -1,14 +1,18 @@
 import pygame
 
 from janggi.board import Board
-from janggi.constants import WIDTH, HEIGHT, SQUARE_SIZE, FPS
+from janggi.constants import WIDTH, HEIGHT, SQUARE_SIZE, FPS, BLACK, WOOD
 from janggi.game_pieces import * 
 from janggi.janggiGame import JanggiGame
 
-WIN = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.init()
+WIN = pygame.display.set_mode((WIDTH, HEIGHT+90))   # WIDTH and HEIGHT are board dimensions. The +90 is to create room for game state at the bottom of the board
 pygame.display.set_caption('Janggi')
 
 def get_mouse_pos(pos):
+    """
+    Returns the x and y coordnates of the current mouse position in tuple.
+    """
     x, y = pos
     col = x // SQUARE_SIZE
     row = y // SQUARE_SIZE
@@ -18,12 +22,10 @@ def main():
     run = True
     clock = pygame.time.Clock()
     game = JanggiGame(WIN)
-
+    
+    # main game loop
     while run:
         clock.tick(FPS)
-
-        if game.get_game_state() != 'UNFINISHED':
-            print(game.get_game_state())
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -32,10 +34,15 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
                 col, row = get_mouse_pos(pos)
-                game.select((col, row))
-            
-        game.update()
+                print(col, row)
 
+                if col <= 8 and row <= 9:       # prevents error being thrown from clicking outsife of board limits
+                    game.select((col, row))
+            
+        
+        game.update()
+        pygame.display.update()
+        
 
     pygame.quit()
 

@@ -652,5 +652,3 @@ class Board:
                     img_string += 'soldier.png'
                 piece_img = pygame.image.load(img_string)
                 win.blit(piece_img, piece.get_pg_pos())
-
-    
