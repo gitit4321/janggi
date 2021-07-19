@@ -1,7 +1,7 @@
-import pygame
-
+# Framerate
 FPS = 30
 
+# Game board size and grid data
 WIDTH, HEIGHT = 810, 900
 COLS, ROWS = 9, 10
 SQUARE_SIZE = WIDTH//COLS

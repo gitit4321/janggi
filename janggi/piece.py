@@ -21,6 +21,7 @@ class GamePiece:
         else:
             self._color = BLUE
         
+        # the below data members are responsible for calculating the coordinates where the GamePice image should be rendered
         self._x_offset = x_offset
         self._y_offset = y_offset
         self._x = 0

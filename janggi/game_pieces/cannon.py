@@ -7,9 +7,15 @@ class Cannon(GamePiece):
     Represents the 'Cannon' game piece.
     """
     def __init__(self, team, p_type, pos, x_offset, y_offset):
+        """
+        Initialize Cannon game piece via inheritance from parent GamePiece class
+        """
         super().__init__(team, p_type, pos, x_offset, y_offset)
     
     def get_img_offset(self):
+        """
+        Returns x and y axis offset for image rendering purposes.
+        """
         return self._x_offset, self._y_offset
 
     def get_valid_moves(self, board):
@@ -33,7 +39,7 @@ class Cannon(GamePiece):
             else:
                 traverse = positive_traverse_range
 
-            for j in range(2):                  # loop through columns (1st iteration) and rows (2nd iteration)
+            for j in range(2):          # loop through columns (1st iteration) and rows (2nd iteration)
                 if j == 0:
                     x = col
                     board_range = 0
@@ -41,8 +47,8 @@ class Cannon(GamePiece):
                     x = row
                     board_range = 1
                 
-                jump_count = 0
-                for k in traverse:
+                jump_count = 0          # tracks number of jumps     
+                for k in traverse:  
                     if x + k not in board.board_ranges()[board_range]:
                         jump_count = 0
                         break
@@ -52,8 +58,6 @@ class Cannon(GamePiece):
                         if j == 1:
                             move_var = (col, x + k)
 
-                        # if jump_count >= 2:
-                            # break
                         space_contents = board.get_space_contents(move_var)
                         if isinstance(space_contents, Cannon):
                             jump_count = 0
@@ -79,6 +83,7 @@ class Cannon(GamePiece):
                             jump_count = 0
                             break
 
+        # fortress movement
         coord_tup = None
 
         if pos == (3, 0) or pos == (3, 7):

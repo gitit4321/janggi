@@ -1,12 +1,13 @@
 import pygame
-
 from .constants import *
 from .game_pieces import general, guard, horse, elephant, chariot, cannon, soldier
-from .piece import GamePiece
 
 
 class Board:
     def __init__(self):
+        """
+        Initialize game board and relevant metadata
+        """
         self._board = [
             ['---', '---', '---', '---', '---', '---', '---', '---', '---'],
             ['---', '---', '---', '---', '---', '---', '---', '---', '---'],
@@ -21,7 +22,7 @@ class Board:
         ]
         self._pieces = self.initialize_pieces_list()    # create list of all necessary GamePiece objects
         self.populate_board(self._pieces)               # place GamePiece objects on their proper starting locations on the board
-        self._checkmate = False
+        self._checkmate = False                         # checkmate check
         self._winner = None                             # 'red' or 'blue'
 
     def initialize_pieces_list(self):
@@ -106,14 +107,21 @@ class Board:
         return self._board[row][col]
 
     def get_checkmate(self):
+        """
+        Returns the state of checkmate. (True of False)
+        """
         return self._checkmate
 
     def get_winner(self):
+        """
+        Returns the winner. (Is None until a winner is found. Then become either 'red' or 'blue' respectively).
+        """
         return self._winner
 
-# can this replace set_piece?
-# currently swaps space contents 
     def move(self, piece_obj, pos):
+        """
+        Moves the given piece to the given position
+        """
         if type(piece_obj) == str:
             return False
         col, row = pos
@@ -199,6 +207,9 @@ class Board:
         return moves_dict
 
     def get_valid_moves_to_uncheck_self(self, player, opponent):
+        """
+        If in check, returns a dictionary of moves that are valid to uncheck (if any).
+        """
         valid_moves_to_uncheck_self = {}
         
         player_gen_obj, player_gen_pos = self.get_general_obj_and_pos(player)
@@ -425,11 +436,6 @@ class Board:
             # all valid moves from all sceanrios will be stored here with piece objects as keys and all valid moves that piece can make as its values. 
             valid_moves_to_uncheck_self = self.get_valid_moves_to_uncheck_self(player, opponent)
 
-            # if no valid moves, checkmate
-            # if valid_moves_to_uncheck_self == {}:
-            #     self._checkmate = True
-            #     return False
-
             # if piece being moved and space being moved to are present in 'valid_moves_to_uncheck_self' dictionary, 
             # move is valid. Update board and turn. Otherwise, return False.
             piece_set = False
@@ -454,6 +460,7 @@ class Board:
                             piece_set = True
                             break
             if piece_set:
+
                 # check for post move checkmate
                 if self.is_in_check(opponent):
 
@@ -465,18 +472,11 @@ class Board:
                         self._checkmate = True
                         self._winner = player
                         return True
-
                 return True
-
             return False
 
         # not in check
         else:
-
-            # handling of 'pass' 
-            # if move_from == move_to:
-            #     self.set_next_turn()
-            #     return True
 
             # unpack current player general object and position
             player_gen_obj, player_gen_pos = self.get_general_obj_and_pos(player)
@@ -513,12 +513,11 @@ class Board:
                     self._checkmate = True
                     self._winner = player
                     return True
-
         return True
 
     def print_board(self):
         """
-        Print formatted board for debugging purposes. (For use by people).
+        Print formatted board for debugging purposes. (For use by humans).
         """
         print()
         print("                                  RED                            ")
@@ -559,6 +558,9 @@ class Board:
 
     # pygame movement purposes
     def get_valid_moves(self, game_piece):
+        """
+        Returns a list of valid moves for the given game piece (Used for rendering valid moves on screen)
+        """
         valid_moves = []
 
         if game_piece.get_team() == 'r':
@@ -585,17 +587,26 @@ class Board:
         return valid_moves
 
     def draw(self, win):
+        """
+        Renders all board components to the screen.
+        """
         self.draw_squares(win)
         self.draw_lines(win)
         self.draw_pieces(win)
 
     def draw_squares(self, win):
+        """
+        Renders each square on the game board.
+        """
         win.fill(WOOD)
         for row in range(ROWS):
             for col in range(row % 2, COLS, 2):
                 pygame.draw.rect(win, WOOD, (col * SQUARE_SIZE, row * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
 
     def draw_lines(self, win):
+        """
+        Rendres the lines on the board that create the grid for game piece movement.
+        """
         center_offset = SQUARE_SIZE // 2
 
         # draw rows
@@ -629,6 +640,9 @@ class Board:
         pygame.draw.line(win, BLACK, start_pos, end_pos, 3)
 
     def draw_pieces(self, win):
+        """
+        Renders each game piece on the board.
+        """
         for i in range(2):
             for piece in self.get_pieces_on_board()[i]:
                 img_string = './janggi/resources/'
@@ -652,5 +666,3 @@ class Board:
                     img_string += 'soldier.png'
                 piece_img = pygame.image.load(img_string)
                 win.blit(piece_img, piece.get_pg_pos())
-
-    
