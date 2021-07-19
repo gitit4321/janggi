@@ -1,6 +1,6 @@
 import pygame
 from .board import Board
-from .constants import GREEN, BLACK, WOOD, WIDTH, HEIGHT, SQUARE_SIZE
+from .constants import DARK_GREEN, BLACK, WOOD, WIDTH, HEIGHT, SQUARE_SIZE
 from .game_pieces import *
 
 
@@ -86,7 +86,7 @@ class JanggiGame:
         """
         for move in moves:
             col, row = move
-            pygame.draw.circle(self._win, GREEN, ((col * SQUARE_SIZE + SQUARE_SIZE // 2), (row * SQUARE_SIZE + SQUARE_SIZE // 2)), 10)
+            pygame.draw.circle(self._win, DARK_GREEN, ((col * SQUARE_SIZE + SQUARE_SIZE // 2), (row * SQUARE_SIZE + SQUARE_SIZE // 2)), 10)
 
     def draw_game_state(self, win):
         """
