@@ -28,22 +28,18 @@ def main():
         clock.tick(FPS)
         
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+            if event.type == pygame.QUIT:               # check for window closure and end game if True
                 run = False
 
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                pos = pygame.mouse.get_pos()
+            if event.type == pygame.MOUSEBUTTONDOWN:    # check for mouse clicks 
+                pos = pygame.mouse.get_pos()            # get mouse position in game window
                 col, row = get_mouse_pos(pos)
-                print(col, row)
-
-                if col <= 8 and row <= 9:       # prevents error being thrown from clicking outsife of board limits
+                if col <= 8 and row <= 9:               # prevents error being thrown from clicking outside of board limits
                     game.select((col, row))
             
-        
-        game.update()
+        game.update()                   
         pygame.display.update()
         
-
     pygame.quit()
 
 main()
