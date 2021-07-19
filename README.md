@@ -26,10 +26,12 @@ May move one point forward, backward, left or right plus one point outward diago
 
 ### Elephant (Bishop)
 Note that this piece has a very unusual move found only in Korean chess. It starts one point forward, backward, left or right, and then moves two points outward diagonally, like an extended knight’s move. It can be blocked anywhere along this path, as it is in the diagram by the green cannon, and by the red chariot.
+
 ![elephant movement](https://ancientchess.com/graphics-rules/janggi_korean_chess_bishop_elephant-move.jpg)
 
 ### Chariot (Rook)
 This piece may move as many points as it wishes, in a straight line, along the lines of the board. This is the same move as the western rook, but note that the Korean rook can also move along the diagonal lines in the fortress, if it is already on one of these points. It can not jump over pieces (such as the red counselor in the diagram), and it captures as it moves (and so, can capture the green piece at his right).
+
 ![chariot movement](https://ancientchess.com/graphics-rules/janggi_korean_chess_chariot_rook-move.jpg)
 
 ### Soldier (Pawn)
