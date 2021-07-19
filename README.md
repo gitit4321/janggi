@@ -5,6 +5,6 @@ This program is a python implementaion of the board game Janggi, otherwise known
 ## Rules
 
 ![Image of board setup]
-(https://github.com/gitit4321/janggi/readme_media/janggi_board_setup.png)
+(https://github.com/gitit4321/janggi/tree/main/readme_media/janggi_board_setup.png)
 
 While the rules may vary, I chose to have the blue player start first.
