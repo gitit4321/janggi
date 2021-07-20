@@ -1,6 +1,6 @@
 # Janggi
 
-This program is a python implementaion of the board game Janggi, otherwise known as Korean chess. The game engine, which originally utilized a command line based interface, was built as a portfolio project for CS162 at Oregon State University. I then chose to build out a graphic user interface in order to provide an easier way for users to interact with the project. 
+This is a python implementaion of the board game Janggi, otherwise known as Korean chess. The game engine, which originally utilized a command line based interface, was built as a portfolio project for CS162 at Oregon State University. I then chose to build out a graphic user interface in order to provide an easier way for users to interact with the project. 
 
 ## Rules
 The pieces are octagonal in shape, vary in size, are placed on the intersections of lines, and are arranged symmetrically. Each side of the board has a nine-point fortress, marked by an “X” of diagonal lines. The General (or King) begins in the center of the fortress. 
