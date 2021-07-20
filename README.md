@@ -44,3 +44,8 @@ However, within the fortress, the pawn may also move forward along the printed d
 While playing the game, upon clicking a game piece you will see what moves are available to you, represented by small green circles. This is an aid to assist with piece movement. 
 
 ## Video Demo
+
+
+https://user-images.githubusercontent.com/66927356/126242761-79804bad-07ce-42dc-9190-84bfd88699ff.mov
+
+
