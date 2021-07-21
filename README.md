@@ -1,6 +1,6 @@
 # Janggi
 
-This program is a python implementaion of the board game Janggi, otherwise known as Korean chess. The game engine, which originally utilized a command line based interface, was built as a portfolio project for CS162 at Oregon State University. I then chose to build out a graphic user interface in order to provide an easier way for users to interact with the project. 
+This is a python implementaion of the board game Janggi, otherwise known as Korean chess. The game engine, which originally utilized a command line based interface, was built as a portfolio project for CS162 at Oregon State University. I then chose to build out a graphic user interface in order to provide an easier way for users to interact with the project. 
 
 ## Rules
 The pieces are octagonal in shape, vary in size, are placed on the intersections of lines, and are arranged symmetrically. Each side of the board has a nine-point fortress, marked by an “X” of diagonal lines. The General (or King) begins in the center of the fortress. 
@@ -14,14 +14,17 @@ A brief description of each pieces movement can be found below.
 
 ### General (King)
 The general must stay within the nine-point fortess. It moves one point along any printed line in the fortress. Note that it moves diagonally only along the printed lines.
+
 ![general movement](https://ancientchess.com/graphics-rules/janggi_korean_chess_king_general-move.jpg)
 
 ### Counselor (Queen)
 Moves exactly the same as the General, and is also confined to the fortress.
+
 ![Counselor movement](https://ancientchess.com/graphics-rules/janggi_korean_chess_queen_guard-move.jpg)
 
 ### Horse (Knight)
 May move one point forward, backward, left or right plus one point outward diagonally, as shown in the image below. This is similar to the western knight, but the Korean knight can be blocked. Note that in the image the knight cannot move to the red marked points, because it is blocked by the pawn on its right. (It is not blocked by the pawn on his left.)
+
 ![horse movement](https://ancientchess.com/graphics-rules/janggi_korean_chess_knight_horse-move.jpg)
 
 ### Elephant (Bishop)
@@ -35,9 +38,13 @@ This piece may move as many points as it wishes, in a straight line, along the l
 ![chariot movement](https://ancientchess.com/graphics-rules/janggi_korean_chess_chariot_rook-move.jpg)
 
 ### Soldier (Pawn)
-This piece may more one point either forward or sideways as seen below.![soldier movement](https://ancientchess.com/graphics-rules/janggi_korean_chess_pawn-move.jpg)
+This piece may more one point either forward or sideways as seen below.
+
+![soldier movement](https://ancientchess.com/graphics-rules/janggi_korean_chess_pawn-move.jpg)
 
 However, within the fortress, the pawn may also move forward along the printed diagonal lines. The image shows the green pawn, with its increased power of move, approaching the enemy general.
+
+
 ![soldier movement](https://ancientchess.com/graphics-rules/janggi_korean_chess_pawn2-move.jpg)
 
 ### A general note about piece movement:
